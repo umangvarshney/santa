@@ -79,6 +79,21 @@
       // Hide comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
-      print render($content);
+      //print render($content);
     ?>
+    <div class="col-sm-6">
+    <?php 
+    $product_id = $node->field_product_display['und'][0]['product_id'];
+    $form_id= commerce_cart_add_to_cart_form_id(array($product_id));
+    $product = commerce_product_load($product_id);
+    $line_item = commerce_product_line_item_new($product, 1);
+    $line_item->data['context']['product_ids'] = array($product_id);
+    $form = drupal_get_form($form_id, $line_item);
+    print render($form);
+    ?>
+    </div>
+    <div class="col-sm-6">
+    <?php print_r($node); ?> 
+    </div>
+    <div class="clearfix"></div>
   </div>
