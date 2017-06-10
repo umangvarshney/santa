@@ -11,6 +11,7 @@ scripts[] = js/bootstrap.min.js
 scripts[] = js/material.min.js
 scripts[] = js/superfish.js
 scripts[] = js/mobilemenu.js
+scripts[] = js/lazyload.js
 scripts[] = js/custom.js
 regions[top_banner]     = Top Banner
 regions[main_slider]    = Main Slider

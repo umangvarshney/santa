@@ -1,0 +1,4 @@
+name= Santa Letter Preview
+description= Preview and entry level form
+core=7.x
+package= custom

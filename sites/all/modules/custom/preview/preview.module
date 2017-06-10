@@ -1,0 +1,60 @@
+<?php
+/**
+ * Santa Letter preview and entry level form.
+ * Take information from user and show preview
+ * Add letter to cart and place an order
+ * @author Umang Gupta
+ * @copyright PostBy Santa
+ */
+
+
+/**
+ * Implement hook_block_info()
+ */
+ function preview_block_info() {
+ 	$blocks = array();
+ 	$blocks['preview_form'] = array(
+ 			'info'=>t('Preview Form'),
+ 			);
+ 	return $blocks;
+ }
+ 
+ /**
+  * Implement hook_block_view()
+  */
+ function preview_block_view($delta = '') {
+ 	$block = array();
+ 	switch ($delta) {
+ 		case 'preview_form':
+ 			$block['content'] = preview_form_block();
+ 	}
+ 	return $block;
+ }
+ 
+ /**
+  * Santa letter preview form 
+  * Handle preview and entry on DB
+  * Using customer Information
+  * @author umang gupta
+  */
+ function preview_form_block($node = array()) {
+ 	$json = array();
+ 	drupal_add_js(drupal_get_path('module', 'preview') . '/preview.js');
+ 	if(!empty($node)) {
+ 		$product_id = $node->field_product_display['und'][0]['product_id'];
+ 		$product = commerce_product_load($product_id);
+ 		//echo"<pre>";
+ 		//print_r($product);
+ 		$json['imgpath'] = file_create_url($product->field_letter_head['und'][0]['uri']);
+ 		$json['text'] = $product->field_preview_text['und'][0]['value'];		
+ 	}
+ 	
+ 	$html = '<h3>Preview Letter </h3>';
+ 	$html.= '<div class="preview_container">';
+ 	$html.= '<div id="back-section"></div>';
+ 	$html.= '<div id="text-section"></div>';
+ 	$html.= '<p class="required">Your preview text will appear when you have entered in the required fields.</p>';
+ 	$html.= '</div>';
+ 	drupal_add_js(array('preview' => array('json' => json_encode($json))), array('type' => 'setting'));
+ 	return $html;
+ }
