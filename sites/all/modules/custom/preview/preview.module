@@ -44,11 +44,18 @@
  		$product_id = $node->field_product_display['und'][0]['product_id'];
  		$product = commerce_product_load($product_id);
  		$form_id= commerce_cart_add_to_cart_form_id(array($product_id));
+ 		$vocabulary = taxonomy_vocabulary_machine_name_load('preview_tag');
+ 		$terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+ 		$termArray = array();
+ 		foreach ($terms as $key => $term) {
+ 			$termArray[$key] = $term->name;
+ 		}
  		/* echo"<pre>";
- 		print_r($product->field_preview_text['und'][0]['value']); */
+ 		print_r($terms); */
  		$json['imgpath'] = file_create_url($product->field_letter_head['und'][0]['uri']);
  		$json['text'] = $product->field_preview_text['und'][0]['value'];
  		$json['cartformid'] = $form_id;
+ 		$json['term'] = $termArray;
  	}
  	
  	$html = '<h3>Preview Letter </h3>';
