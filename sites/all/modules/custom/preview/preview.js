@@ -19,7 +19,7 @@
     	var tag = $.map(terms, function(value, index) {
     	    return [value];
     	});
-    	$("form#"+formid+ " input[type=text]").on('keyup',function(){
+    	$("form#"+formid+ " input").on('keyup',function(){
     		//console.log("working");
     		var valid = validateForm(requiredFields);
     		if(valid && !flag) {
@@ -52,6 +52,7 @@
 	    	var value = $('#'+replace[i]).val();
 	        subject = subject.replace(search[i], value);
 	    }
+	    console.log(count);
 	    return subject;
  }
   function validateForm(requriedFields) {
@@ -66,7 +67,7 @@
 	  var requiredFields = [];
 	  var data = [];
 	  var Fields = [];
-	  $("form#"+formid+ " input[type=text]").each(function() {
+	  $("form#"+formid+ " input").each(function() {
 		  Fields.push($(this).attr('id'));
 		  if( $(this).hasClass('required')) {
 			  requiredFields.push($(this).attr('id'));
