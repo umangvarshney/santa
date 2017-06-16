@@ -43,10 +43,12 @@
  	if(!empty($node)) {
  		$product_id = $node->field_product_display['und'][0]['product_id'];
  		$product = commerce_product_load($product_id);
- 		//echo"<pre>";
- 		//print_r($product);
+ 		$form_id= commerce_cart_add_to_cart_form_id(array($product_id));
+ 		/* echo"<pre>";
+ 		print_r($product->field_preview_text['und'][0]['value']); */
  		$json['imgpath'] = file_create_url($product->field_letter_head['und'][0]['uri']);
- 		$json['text'] = $product->field_preview_text['und'][0]['value'];		
+ 		$json['text'] = $product->field_preview_text['und'][0]['value'];
+ 		$json['cartformid'] = $form_id;
  	}
  	
  	$html = '<h3>Preview Letter </h3>';

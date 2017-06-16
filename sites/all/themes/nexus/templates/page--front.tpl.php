@@ -204,7 +204,7 @@
   </div>
 </div>
 <script type="text/javascript">
-jQuery(document).init(function(){
+(function(){
 	if(getCookie('front') == "" || getCookie('front') == 'undefined') {
 		setCookie('front',1,1);
 		jQuery('#page').css({'display':'none'});
@@ -212,7 +212,7 @@ jQuery(document).init(function(){
 	else {
 		 jQuery( ".front-wrapper" ).css({'display':'none'});
 		}
-});
+})();
 jQuery( "#clickme" ).click(function() {
 	jQuery( ".front-wrapper" ).slideUp( "slow", function() {
 	    // Animation complete.
