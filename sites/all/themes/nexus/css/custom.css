@@ -9,7 +9,7 @@
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	background: #b71c1c;
+	background: #ffffff;
 	z-index: 9999;
 }
  .front-wrapper .cover-page {
@@ -47,7 +47,7 @@
     text-transform: none;
     letter-spacing: -.01em;
     line-height: 1em;
-    color: #fff;
+    color: #000;
     margin-top: 0;
     margin-bottom: 40px;
 }
@@ -59,7 +59,7 @@
     line-height: 1.4em;
     text-transform: none;
     letter-spacing: .04em;
-    color: #fff;
+    color: #000;
     margin-bottom: 40px;
     position: relative;
 }
@@ -72,7 +72,7 @@
     line-height: 1.4em;
     text-transform: none;
     letter-spacing: .04em;
-    color: #fff;
+    color: #000;
 }
 .front-wrapper .cover-page .cover-layer .cover-content .inner-widget {
 	display: inline-block;
@@ -88,12 +88,12 @@
     list-style: none;
 }
 .front-wrapper .cover-page .cover-layer .cover-content .inner-widget ul li:hover{
-	background-color: #fff;
+	background-color: #000;
 }
 .front-wrapper .cover-page .cover-layer .cover-content .inner-widget ul li a {
 	background-color: transparent;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid #000;
     display: block;
     text-decoration: none;
     padding-top: 1em;
@@ -103,7 +103,7 @@
 }
 .front-wrapper .cover-page .cover-layer .cover-content .inner-widget ul li a:hover {
 	color: #000;
-	background-color: #fff;
+	background-color: #000;
 }
 
 @media(max-width:800px) and (min-width:768px) {
@@ -145,6 +145,82 @@
 .product-list ul.product-data li.product-gallery {
 	float: left;
 }
+/*********** End Here *********************/
+/******* Product Node View ****************/
+.head-text1,.head-text2 {
+	text-align: center;
+}
+.head-text1 h5,.head-text2 h5 {
+	font-size: 26px;
+    line-height: 30px;
+    color: #094A6A;
+    margin:10px 0;	
+}
+.node-type-products .bottom-container {position: relative;top: 40px;}
+.form-item label {font-size: 16px;}
+ input[type="submit"],
+  input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #43D1AF;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+}
+ .page-node input[type="submit"]:hover,
+ .page-node input[type="button"]:hover{
+    background: #2EBC99;
+}
+
+.page-node form input[type="text"],
+.page-node form input[type="date"],
+.page-node form input[type="datetime"],
+.page-node form input[type="email"],
+.page-node form input[type="number"],
+.page-node form input[type="search"],
+.page-node form input[type="time"],
+.page-node form input[type="url"],
+.page-node form textarea,
+.page-node form select 
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.page-node form input[type="text"]:focus,
+.page-node form input[type="date"]:focus,
+.page-node form input[type="datetime"]:focus,
+.page-node form input[type="search"]:focus,
+.page-node form input[type="time"]:focus,
+.page-node form input[type="url"]:focus,
+.page-node form textarea:focus,
+.page-node form select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+}
+.prev h1{font-weight: bold;}
+.prev p.required-cls{color:red;} 
+/********* End Here *******************/
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

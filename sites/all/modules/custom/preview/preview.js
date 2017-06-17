@@ -21,13 +21,14 @@
     	});
     	//console.log(tag);
     	$("form#"+formid+ " input, form#"+formid+ " select").on('keyup change',function(){
-    		console.log("working");
+    		//console.log("working");
     		var valid = validateForm(requiredFields);
     		if(valid && !flag) {
     			flag = true;
     		    text = str_replace(tag, Fields, textdata);
     			$('.preview_container #text-section').html(text);
-    			$('.preview_container #back-section').html('<img  src="'+data.imgpath+'" width="100%" height="100%"/>');
+    			$('.preview_container #back-section').html('<img  src="'+data.imgpath+'"/>');
+    			$('.required-cls').hide();
     		}
     		if(flag) {
     			 text = str_replace(tag, Fields, textdata);

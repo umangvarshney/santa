@@ -58,12 +58,12 @@
  		$json['term'] = $termArray;
  	}
  	
- 	$html = '<h3>Preview Letter </h3>';
+ 	$html = '<div class="prev"><h1>Preview Letter </h1>';
  	$html.= '<div class="preview_container">';
  	$html.= '<div id="back-section"></div>';
  	$html.= '<div id="text-section"></div>';
- 	$html.= '<p class="required">Your preview text will appear when you have entered in the required fields.</p>';
- 	$html.= '</div>';
+ 	$html.= '<p class="required-cls">Your preview text will appear when you have entered in the required fields.</p>';
+ 	$html.= '</div></div>';
  	drupal_add_js(array('preview' => array('json' => json_encode($json))), array('type' => 'setting'));
  	return $html;
  }

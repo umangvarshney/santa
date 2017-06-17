@@ -79,9 +79,13 @@
       // Hide comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
-      print render($content);
     ?>
-    <div class="col-sm-6">
+    <div class="col-sm-12">
+    <div class="head-text1"><h5>Please input your child's required information in the fields below.</h5></div>
+    <div class="head-text2"><h5>A preview will display once the required fields are filled out.</h5></div>
+    </div>
+    <div class="bottom-container">
+    <div class="col-sm-5">
     <?php 
    /*  $product_id = $node->field_product_display['und'][0]['product_id'];
     $form_id= commerce_cart_add_to_cart_form_id(array($product_id));
@@ -90,16 +94,22 @@
     $line_item->data['context']['product_ids'] = array($product_id);
     $form = drupal_get_form($form_id, $line_item);
     print render($form); */
+    print render($content);
     ?>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-7">
+    <div class="product-img">
+    <img src="<?php print file_create_url($node->field_product_image['und'][0]['uri']);?>" width="100%" style="border:none;"/>
+    </div>
     <?php /* echo"<pre>";
     $product_id = $node->field_product_display['und'][0]['product_id'];
     $product = commerce_product_load($product_id);
     print_r($product); */
+    //echo "<pre>";
     //print_r($node); 
     print preview_form_block($node);
     ?> 
+    </div>
     </div>
     <div class="clearfix"></div>
   </div>
