@@ -19,8 +19,9 @@
     	var tag = $.map(terms, function(value, index) {
     	    return [value];
     	});
-    	$("form#"+formid+ " input").on('keyup',function(){
-    		//console.log("working");
+    	//console.log(tag);
+    	$("form#"+formid+ " input, form#"+formid+ " select").on('keyup change',function(){
+    		console.log("working");
     		var valid = validateForm(requiredFields);
     		if(valid && !flag) {
     			flag = true;
@@ -47,12 +48,11 @@
 	  }	  
   }
   function str_replace(search, replace, subject) {
-	  var count = 0;
 	    for (i=0; i<replace.length; i++) {
 	    	var value = $('#'+replace[i]).val();
 	        subject = subject.replace(search[i], value);
 	    }
-	    console.log(count);
+	    //console.log(count);
 	    return subject;
  }
   function validateForm(requriedFields) {
@@ -67,12 +67,15 @@
 	  var requiredFields = [];
 	  var data = [];
 	  var Fields = [];
-	  $("form#"+formid+ " input").each(function() {
-		  Fields.push($(this).attr('id'));
-		  if( $(this).hasClass('required')) {
-			  requiredFields.push($(this).attr('id'));
+	  $.each($('input,select','form#'+formid),function() {
+		  if(typeof($(this).attr('id')) !== 'undefined'){
+			  Fields.push($(this).attr('id'));
+			  if( $(this).hasClass('required')) {
+				  requiredFields.push($(this).attr('id'));
+			  }  
 		  }  
 	});
+	  //console.log(Fields);
 	  data[0] =Fields;
 	  data[1] = requiredFields;
 	  return data;
